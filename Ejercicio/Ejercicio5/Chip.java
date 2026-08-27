@@ -1,6 +1,5 @@
-// Archivo: Chip.java
 class Chip {
-    void procesar() {
-        System.out.println("El chip está procesando datos...");
-    }
+    void procesar() { 
+        System.out.println("Chip procesando datos correctamente...");
+    } // Cierre del método procesar
 }
