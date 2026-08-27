@@ -1,6 +1,5 @@
-package Ejemplo.Ejemplo7;
+package Ejemplo7;
 
-  
 // Archivo: Principal.java 
 public class Principal { 
     public static void main(String[] args) { 

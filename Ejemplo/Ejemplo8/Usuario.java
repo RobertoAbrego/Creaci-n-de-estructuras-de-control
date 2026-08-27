@@ -1,4 +1,4 @@
-package Ejemplo.Ejemplo8;
+package Ejemplo8;
 
 // Archivo: Usuario.java 
 public class Usuario { 

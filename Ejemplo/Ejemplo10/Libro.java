@@ -1,4 +1,4 @@
-package Ejemplo.Ejemplo10;
+package Ejemplo10;
 
 public class Libro { 
     public String titulo; 

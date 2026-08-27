@@ -1,4 +1,4 @@
-package Ejemplo.Ejemplo7;
+package Ejemplo7;
 
 // Archivo: ImpresoraCentral.java 
 public class ImpresoraCentral { 
