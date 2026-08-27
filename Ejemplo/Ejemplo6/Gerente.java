@@ -1,5 +1,4 @@
-package Ejemplo.Ejemplo6;
-
+package Ejemplo6;
 // Archivo: Gerente.java 
 public class Gerente extends Empleado { 
     public Gerente(double salarioBase) { 

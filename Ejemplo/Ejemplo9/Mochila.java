@@ -1,4 +1,4 @@
-package Ejemplo.Ejemplo9;
+package Ejemplo9;
 
 // Archivo: Mochila.java 
 public class Mochila { 

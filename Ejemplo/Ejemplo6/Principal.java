@@ -1,4 +1,4 @@
-package Ejemplo.Ejemplo6;
+package Ejemplo6;
 
 // Archivo: Principal.java 
 public class Principal { 
