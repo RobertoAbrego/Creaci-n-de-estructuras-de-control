@@ -22,11 +22,13 @@ public class Producto {
  public int getStock() {
  return stock;
  }
- public void setPrecio(double precio) {
- if (precio > 0) {
- this.precio = precio;
- }
- }
+    public void setPrecio(double precio) {
+        if (precio > 0) {
+            this.precio = precio;
+        } else {
+            System.out.println("Error: el precio debe ser mayor que cero.");
+        }
+    }
  // Acceso por defecto: visible dentro del paquete sistemaventas.
  boolean hayStock(int cantidad) {
  return cantidad > 0 && cantidad <= stock;

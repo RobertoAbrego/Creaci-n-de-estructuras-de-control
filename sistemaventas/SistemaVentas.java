@@ -5,10 +5,20 @@ public class SistemaVentas {
  public static void main(String[] args) {
  Producto[] productos = {
     new Producto(101, "Teclado", 25.00, 10),
- new Producto(102, "Mouse", 15.50, 8),
- new Producto(103, "Memoria USB", 12.00, 12),
- new Producto(104, "Audifonos", 30.00, 5)
+    new Producto(102, "Mouse", 15.50, 8),
+    new Producto(103, "Memoria USB", 12.00, 12),
+    new Producto(104, "Audifonos", 30.00, 5),
+    new Producto(105, "Monitor", 150.00, 4) // Nuevo producto
  };
+
+Producto encontrado = buscarProductoPorNombre(productos, "Mouse");
+
+if (encontrado != null) {
+    System.out.println(encontrado.obtenerResumen());
+} else {
+    System.out.println("Producto no encontrado.");
+}
+
  int opcion;
  do {
  mostrarMenu();
@@ -29,6 +39,10 @@ public class SistemaVentas {
  case 5:
  System.out.println("Gracias por utilizar el sistema.");
  break;
+case 6:
+mostrarStockBajo(productos);
+break;
+
  default:
  System.out.println("Opcion invalida. Intente nuevamente.");
  }
@@ -44,7 +58,25 @@ public class SistemaVentas {
  System.out.println("3. Reponer inventario");
  System.out.println("4. Reporte de inventario");
  System.out.println("5. Salir");
+ System.out.println("1. Listar productos");
+System.out.println("2. Registrar venta");
+System.out.println("3. Reponer inventario");
+System.out.println("4. Reporte de inventario");
+System.out.println("5. Salir");
+System.out.println("6. Mostrar productos con stock bajo");
  }
+
+ private static void mostrarStockBajo(Producto[] productos) {
+    System.out.println("\n--- PRODUCTOS CON STOCK BAJO ---");
+
+    for (Producto producto : productos) {
+        if (producto.getStock() <= 5) {
+            System.out.println(producto.obtenerResumen());
+        }
+    }
+}
+
+
  private static void listarProductos(Producto[] productos) {
  System.out.println("\n--- PRODUCTOS DISPONIBLES ---");
  for (Producto producto : productos) {
@@ -82,10 +114,13 @@ public class SistemaVentas {
  Venta venta = new Venta(producto, cliente, cantidad);
  if (producto.descontarStock(cantidad)) {
  System.out.println(venta.generarDetalle());
+ System.out.println("Ventas registradas: " + Venta.getContadorVentas());
  } else {
  System.out.println("No fue posible completar la venta.");
  }
  }
+
+
  private static void reponerInventario(Producto[] productos) {
  int codigo = leerEntero("Codigo del producto: ");
  Producto producto = buscarProducto(productos, codigo);
@@ -128,6 +163,19 @@ public class SistemaVentas {
  }
  return null;
  }
+
+
+ private static Producto buscarProductoPorNombre(Producto[] productos, String nombre) {
+    for (Producto producto : productos) {
+        if (producto.getNombre().equalsIgnoreCase(nombre)) {
+            return producto;
+        }
+    }
+
+    return null;
+}
+
+
  private static int leerEntero(String mensaje) {
  int numero;
  while (true) {

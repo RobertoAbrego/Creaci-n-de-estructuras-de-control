@@ -1,6 +1,7 @@
 package sistemaventas;
 public class Venta {
  public static final double IVA = 0.13;
+ private static int contadorVentas = 0;
  private Producto producto;
  private Cliente cliente;
  private int cantidad;
@@ -8,13 +9,25 @@ public class Venta {
  this.producto = producto;
  this.cliente = cliente;
  this.cantidad = cantidad;
+ contadorVentas++;
  }
+
+public static int getContadorVentas() {
+    return contadorVentas;
+}
+
  public double calcularSubtotal() {
  return producto.getPrecio() * cantidad;
  }
- public double calcularDescuento() {
- return calcularSubtotal() * cliente.getPorcentajeDescuento();
- }
+    public double calcularDescuento() {
+        double porcentaje = cliente.getPorcentajeDescuento();
+
+        if (cantidad >= 5) {
+            porcentaje = porcentaje + 0.05;
+        }
+
+        return calcularSubtotal() * porcentaje;
+    }
  public double calcularBaseImponible() {
  return calcularSubtotal() - calcularDescuento();
  }
